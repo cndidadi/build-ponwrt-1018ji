@@ -33,7 +33,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [an7581]
+        target: [an7583]
     env:
       CONFIG_FILE: ${{ matrix.target }}.config
 
