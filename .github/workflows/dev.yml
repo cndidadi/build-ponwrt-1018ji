@@ -116,6 +116,13 @@ jobs:
       if: steps.compile.outputs.status == 'success' && !cancelled()
       run: echo "name=DEV-$(date +%Y-%m-%d)-${{ matrix.target }}" >> "$GITHUB_OUTPUT"
 
+    - name: Check generated files
+      run: |
+        echo "=== 查看当前目录结构 ==="
+        ls -d */bin/targets/airoha/* || true
+        echo "=== 查看目标文件夹下的所有文件 ==="
+        ls -la openwrt/bin/targets/airoha/${{ matrix.target }}/ || ls -la bin/targets/airoha/${{ matrix.target }}/ || true
+        
     - name: Upload firmware artifact
       uses: actions/upload-artifact@v4
       if: steps.name.outputs.name != '' && !cancelled()
