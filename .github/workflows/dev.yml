@@ -131,8 +131,8 @@ jobs:
         retention-days: 3
         if-no-files-found: error
         path: |
-          openwrt/bin/targets/airoha/${{ matrix.target }}/*initramfs-recovery.itb
-          openwrt/bin/targets/airoha/${{ matrix.target }}/*squashfs-sysupgrade.itb
+          openwrt/bin/targets/airoha/an758*/*initramfs-recovery.itb
+          openwrt/bin/targets/airoha/an758*/*squashfs-sysupgrade.itb
 
   cleanup:
     needs: [build]
